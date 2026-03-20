@@ -44,6 +44,7 @@
       justify-content: space-between;
       padding: 0 4rem;
       height: 58px;
+      gap: 1rem;
     }
 
     .nav-name {
@@ -51,6 +52,7 @@
       font-size: 1rem;
       color: var(--text);
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .nav-links {
@@ -70,6 +72,34 @@
     }
 
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    /* LANGUAGE TOGGLE */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.32rem 0.65rem;
+      background: transparent;
+      color: var(--muted);
+      border: none;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      line-height: 1;
+    }
+
+    .lang-btn:first-child { border-right: 1px solid var(--border); }
+    .lang-btn.active { background: var(--accent); color: white; }
+    .lang-btn:not(.active):hover { background: var(--off); color: var(--text); }
 
     /* HERO */
     #hero {
@@ -245,7 +275,6 @@
       text-decoration: none;
       color: inherit;
       transition: all 0.15s;
-      border-radius: 0;
     }
 
     .project-row:hover {
@@ -305,16 +334,6 @@
     .pub-venue em { color: var(--accent); font-style: normal; }
 
     .pub-meta { display: flex; align-items: center; gap: 0.8rem; margin-top: 0.4rem; flex-wrap: wrap; }
-
-    .pub-badge {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      padding: 0.2rem 0.55rem;
-      border-radius: 100px;
-      background: var(--accent-light);
-      color: var(--accent);
-    }
 
     .pub-link {
       font-size: 0.72rem;
@@ -400,8 +419,6 @@
     .media-sub { font-size: 0.72rem; color: var(--muted); }
 
     /* CONTACT */
-    .contact-bg { background: var(--off); }
-
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -435,33 +452,6 @@
       flex-shrink: 0;
     }
 
-    .form-side { display: flex; flex-direction: column; gap: 1rem; }
-
-    label {
-      display: block;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 0.65rem 0.9rem;
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      color: var(--text);
-      transition: border-color 0.2s;
-      resize: vertical;
-    }
-
-    input:focus, textarea:focus { outline: none; border-color: var(--accent); }
-    textarea { min-height: 110px; }
-
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
@@ -473,128 +463,82 @@
       color: var(--muted);
     }
 
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--accent); }
-
     /* FADE */
     .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .fade.in { opacity: 1; transform: none; }
 
     /* EDUCATION TIMELINE */
-    .edu-timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
+    .edu-timeline { position: relative; padding-left: 2rem; }
 
     .edu-timeline::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 6px;
-      bottom: 0;
+      left: 0; top: 6px; bottom: 0;
       width: 2px;
       background: linear-gradient(to bottom, var(--accent), var(--border));
       border-radius: 2px;
     }
 
-    .edu-item {
-      position: relative;
-      padding: 0 0 2.8rem 2rem;
-    }
-
+    .edu-item { position: relative; padding: 0 0 2.8rem 2rem; }
     .edu-item:last-child { padding-bottom: 0; }
 
     .edu-item::before {
       content: '';
       position: absolute;
-      left: -0.44rem;
-      top: 6px;
-      width: 12px;
-      height: 12px;
+      left: -0.44rem; top: 6px;
+      width: 12px; height: 12px;
       border-radius: 50%;
       background: var(--white);
       border: 2px solid var(--accent);
       z-index: 1;
     }
 
-    .edu-item:first-child::before {
-      background: var(--accent);
-    }
+    .edu-item:first-child::before { background: var(--accent); }
 
     .edu-year {
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.4rem;
     }
 
     .edu-degree {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-      line-height: 1.4;
+      font-family: var(--serif); font-size: 1.05rem;
+      font-weight: 400; color: var(--text);
+      margin-bottom: 0.2rem; line-height: 1.4;
     }
 
-    .edu-institution {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
+    .edu-institution { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.6rem; }
 
-    .edu-thesis {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 0.3rem;
-    }
-
+    .edu-thesis { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.3rem; }
     .edu-thesis em { color: var(--text); font-style: italic; }
-
-    .edu-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .edu-note { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
 
     .edu-badge {
       display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 500;
+      font-size: 0.65rem; font-weight: 500;
       letter-spacing: 0.06em;
       padding: 0.2rem 0.55rem;
       border-radius: 100px;
-      background: var(--accent-light);
-      color: var(--accent);
+      background: var(--accent-light); color: var(--accent);
       margin-top: 0.5rem;
     }
 
-
-    /* HAMBURGER BUTTON */
+    /* HAMBURGER */
     .nav-hamburger {
       display: none;
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      width: 36px;
-      height: 36px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
+      width: 36px; height: 36px;
+      background: none; border: none;
+      cursor: pointer; padding: 4px;
       border-radius: 4px;
       transition: background 0.2s;
     }
     .nav-hamburger:hover { background: var(--off); }
     .nav-hamburger span {
-      display: block;
-      width: 100%;
-      height: 1.5px;
-      background: var(--text);
-      border-radius: 2px;
+      display: block; width: 100%; height: 1.5px;
+      background: var(--text); border-radius: 2px;
       transition: transform 0.25s, opacity 0.25s;
       transform-origin: center;
     }
@@ -612,28 +556,15 @@
       border-bottom: 1px solid var(--border);
       z-index: 99;
       padding: 1rem 1.5rem 1.5rem;
-      transform: translateY(-10px);
-      opacity: 0;
+      transform: translateY(-10px); opacity: 0;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
-    .nav-drawer.open {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .nav-drawer ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .nav-drawer.open { transform: translateY(0); opacity: 1; }
+    .nav-drawer ul { list-style: none; display: flex; flex-direction: column; }
     .nav-drawer ul li a {
-      display: block;
-      padding: 0.75rem 0;
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: 0.04em;
+      display: block; padding: 0.75rem 0;
+      font-size: 0.9rem; font-weight: 400;
+      color: var(--text); text-decoration: none;
       border-bottom: 1px solid var(--border);
       transition: color 0.2s, padding-left 0.2s;
     }
@@ -641,20 +572,15 @@
     .nav-drawer ul li a:hover { color: var(--accent); padding-left: 4px; }
 
     @media (max-width: 720px) {
-      /* NAV */
       nav { padding: 0 1.2rem; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-drawer { display: block; }
 
-      /* HERO — image on top, text below */
       #hero {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
         padding: 5.5rem 1.2rem 3.5rem;
-        min-height: auto;
-        gap: 1.8rem;
-        text-align: center;
+        min-height: auto; gap: 1.8rem; text-align: center;
       }
       #hero > div:first-child { order: 2; }
       .hero-avatar { order: 1; width: 130px; height: 130px; margin: 0 auto; }
@@ -664,40 +590,16 @@
       .hero-tags { justify-content: center; }
       .hero-links { justify-content: center; }
 
-      /* SECTIONS */
       .section { padding: 3rem 1.2rem; }
-
-      /* ABOUT */
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-
-      /* EDUCATION — tighten timeline on small screens */
       .edu-timeline { padding-left: 1.5rem; }
       .edu-item { padding: 0 0 2rem 1.5rem; }
-
-      /* PROJECTS */
-      .project-row { grid-template-columns: 1fr auto; gap: 1rem; }
+      .project-row { gap: 1rem; }
       .project-row:hover { padding-left: 0.5rem; padding-right: 0.5rem; margin: 0 -0.5rem; }
-
-      /* PUBLICATIONS — stack year above content */
-      .pub-item {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
-      }
-      .pub-year { font-size: 0.65rem; }
-
-      /* NEWS */
+      .pub-item { grid-template-columns: 1fr; gap: 0.3rem; }
       .news-grid { grid-template-columns: 1fr; }
-
-      /* CONTACT */
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-
-      /* FOOTER */
-      footer {
-        flex-direction: column;
-        gap: 0.4rem;
-        padding: 1.4rem 1.2rem;
-        text-align: center;
-      }
+      footer { flex-direction: column; gap: 0.4rem; padding: 1.4rem 1.2rem; text-align: center; }
     }
 
     @media (max-width: 400px) {
@@ -712,14 +614,18 @@
   <nav>
     <a href="#hero" class="nav-name">Francielle Marques</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#outreach">Outreach</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#education" data-i18n="nav.education">Education</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="#publications" data-i18n="nav.publications">Publications</a></li>
+      <li><a href="#news" data-i18n="nav.news">News</a></li>
+      <li><a href="#outreach" data-i18n="nav.outreach">Outreach</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-pt" onclick="setLang('pt')">PT</button>
+    </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -727,30 +633,30 @@
 
   <div class="nav-drawer" id="nav-drawer">
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#outreach">Outreach</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#education" data-i18n="nav.education">Education</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="#publications" data-i18n="nav.publications">Publications</a></li>
+      <li><a href="#news" data-i18n="nav.news">News</a></li>
+      <li><a href="#outreach" data-i18n="nav.outreach">Outreach</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </div>
 
   <!-- HERO -->
   <section id="hero">
     <div class="fade">
-      <div class="hero-eyebrow">AI Researcher</div>
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">AI Researcher</div>
       <h1>Francielle<br /><em>Marques</em></h1>
-      <p class="hero-bio">
+      <p class="hero-bio" data-i18n="hero.bio">
         Researcher at the Universitat Pompeu Fabra (Barcelona) working at the intersection of Artificial Intelligence, Education, and Social Good. Passionate about responsible, human-centred AI.
       </p>
       <div class="hero-tags">
-        <span class="tag">Artificial Intelligence</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">Machine Learning</span>
-        <span class="tag">AI in Education</span>
-        <span class="tag">AI for Social Good</span>
+        <span class="tag" data-i18n="tags.ai">Artificial Intelligence</span>
+        <span class="tag" data-i18n="tags.dl">Deep Learning</span>
+        <span class="tag" data-i18n="tags.ml">Machine Learning</span>
+        <span class="tag" data-i18n="tags.edu">AI in Education</span>
+        <span class="tag" data-i18n="tags.social">AI for Social Good</span>
       </div>
       <div class="hero-links">
         <a href="https://scholar.google.com/citations?user=-g0cVvcAAAAJ&hl=en" class="btn btn-primary" target="_blank">Google Scholar ↗</a>
@@ -769,37 +675,30 @@
   <!-- ABOUT -->
   <div id="about" class="about-bg">
     <div class="section">
-      <div class="section-label fade">About</div>
-      <h2 class="fade">Who I am</h2>
+      <div class="section-label fade" data-i18n="nav.about">About</div>
+      <h2 class="fade" data-i18n="about.title">Who I am</h2>
       <div class="about-grid">
         <div class="about-text fade">
-          <p>
-            I am <strong>Francielle Marques do Nascimento</strong>, an AI researcher at the <strong>TIDE Research Group, Universitat Pompeu Fabra</strong> in Barcelona. I recently defended my doctoral thesis titled <em>"Towards Responsible Higher Education Institutional Analytics: A Study of Biases and Dependencies on Student Satisfaction
-           "</em> — with the distinction of <strong>Sobresaliente cum laude</strong>.
-          </p>
-          <p>
-            My research focuses on building trustworthy and ethical AI systems, with particular attention to how machine learning can be applied responsibly in educational and social contexts. I combine technical rigor with a commitment to fairness, transparency, and inclusion.
-          </p>
-          <p>
-            I am also involved in scientific outreach, having participated in talks, podcasts, and public events to bring AI discussions to broader audiences — especially in Brazil.
-          </p>
+          <p data-i18n-html="about.p1">I am <strong>Francielle Marques do Nascimento</strong>, an AI researcher at the <strong>TIDE Research Group, Universitat Pompeu Fabra</strong> in Barcelona. I recently defended my doctoral thesis titled <em>"Towards Responsible Higher Education Institutional Analytics: A Study of Biases and Dependencies on Student Satisfaction"</em> — with the distinction of <strong>Sobresaliente cum laude</strong>.</p>
+          <p data-i18n="about.p2">My research focuses on building trustworthy and ethical AI systems, with particular attention to how machine learning can be applied responsibly in educational and social contexts. I combine technical rigor with a commitment to fairness, transparency, and inclusion.</p>
+          <p data-i18n="about.p3">I am also involved in scientific outreach, having participated in talks, podcasts, and public events to bring AI discussions to broader audiences — especially in Brazil.</p>
         </div>
         <div class="info-block fade">
           <div class="info-item">
-            <div class="info-item-label">Position</div>
-            <div class="info-item-val">Postdoctoral Researcher</div>
+            <div class="info-item-label" data-i18n="about.position_label">Position</div>
+            <div class="info-item-val" data-i18n="about.position_val">Postdoctoral Researcher</div>
           </div>
           <div class="info-item">
-            <div class="info-item-label">Institution</div>
+            <div class="info-item-label" data-i18n="about.institution_label">Institution</div>
             <div class="info-item-val">Universitat Pompeu Fabra</div>
           </div>
           <div class="info-item">
-            <div class="info-item-label">Location</div>
-            <div class="info-item-val">Barcelona, Spain</div>
+            <div class="info-item-label" data-i18n="about.location_label">Location</div>
+            <div class="info-item-val" data-i18n="about.location_val">Barcelona, Spain</div>
           </div>
           <div class="info-item">
-            <div class="info-item-label">Citations</div>
-            <div class="info-item-val">40+ on Google Scholar</div>
+            <div class="info-item-label" data-i18n="about.citations_label">Citations</div>
+            <div class="info-item-val" data-i18n="about.citations_val">40+ on Google Scholar</div>
           </div>
         </div>
       </div>
@@ -811,17 +710,17 @@
   <!-- EDUCATION -->
   <div id="education">
     <div class="section">
-      <div class="section-label">Education</div>
-      <h2>Academic Background</h2>
+      <div class="section-label" data-i18n="nav.education">Education</div>
+      <h2 data-i18n="edu.title">Academic Background</h2>
       <div class="edu-timeline">
 
         <div class="edu-item">
           <div class="edu-year">2025</div>
           <div>
-            <div class="edu-degree">PhD in Information and Communication Technologies</div>
+            <div class="edu-degree" data-i18n="edu.phd_degree">PhD in Information and Communication Technologies</div>
             <div class="edu-institution">Universitat Pompeu Fabra (UPF) · Barcelona, Spain</div>
-            <p class="edu-thesis">Doctoral thesis: <em>"Towards responsible higher education institutional analytics: a study of biases and dependencies on student satisfaction"</em>, directed by Dr. Carlos Alberto Castillo Ocaranza and Dr. Davinia Hernandez Leo.</p>
-            <p class="edu-note">Defence held on July 18th, 2025.</p>
+            <p class="edu-thesis" data-i18n-html="edu.phd_thesis">Doctoral thesis: <em>"Towards responsible higher education institutional analytics: a study of biases and dependencies on student satisfaction"</em>, directed by Dr. Carlos Alberto Castillo Ocaranza and Dr. Davinia Hernandez Leo.</p>
+            <p class="edu-note" data-i18n="edu.phd_note">Defence held on July 18th, 2025.</p>
             <span class="edu-badge">Sobresaliente cum laude</span>
           </div>
         </div>
@@ -829,26 +728,26 @@
         <div class="edu-item">
           <div class="edu-year">2021</div>
           <div>
-            <div class="edu-degree">Master's Degree in Computer Science</div>
+            <div class="edu-degree" data-i18n="edu.master_degree">Master's Degree in Computer Science</div>
             <div class="edu-institution">Federal University of Rio Grande do Sul (UFRGS) · Brazil</div>
-            <p class="edu-thesis">Master's thesis: <em>"Contributions of machine learning to knowledge acquisition in the field of social sciences"</em>, directed by Dr. Dante Barone and Dr. Henrique Carlos Castro.</p>
-            <span class="edu-badge">Excellent</span>
+            <p class="edu-thesis" data-i18n-html="edu.master_thesis">Master's thesis: <em>"Contributions of machine learning to knowledge acquisition in the field of social sciences"</em>, directed by Dr. Dante Barone and Dr. Henrique Carlos Castro.</p>
+            <span class="edu-badge" data-i18n="edu.master_badge">Excellent</span>
           </div>
         </div>
 
         <div class="edu-item">
           <div class="edu-year">2018</div>
           <div>
-            <div class="edu-degree">Bachelor of Science in Computer Science</div>
+            <div class="edu-degree" data-i18n="edu.bachelor_degree">Bachelor of Science in Computer Science</div>
             <div class="edu-institution">Federal University of Mato Grosso (UFMT) · Brazil</div>
-            <p class="edu-thesis">Bachelor's thesis: <em>"Sistema Computacional para previsão da dispersão da ferrugem asiática da soja a partir de dados meteorológicos e de ocorrência da doença"</em> ("Computational system for forecasting the dispersion of Asian soybean rust through meteorological and disease occurrence data"), directed by Dr. Ivarton Monteiro Santos.</p>
+            <p class="edu-thesis" data-i18n-html="edu.bachelor_thesis">Bachelor's thesis: <em>"Sistema Computacional para previsão da dispersão da ferrugem asiática da soja a partir de dados meteorológicos e de ocorrência da doença"</em> ("Computational system for forecasting the dispersion of Asian soybean rust through meteorological and disease occurrence data"), directed by Dr. Ivarton Monteiro Santos.</p>
           </div>
         </div>
 
         <div class="edu-item">
           <div class="edu-year">2014</div>
           <div>
-            <div class="edu-degree">Computer Technician</div>
+            <div class="edu-degree" data-i18n="edu.tech_degree">Computer Technician</div>
             <div class="edu-institution">Federal Institute of Goiás (IFG) · Brazil</div>
           </div>
         </div>
@@ -859,29 +758,27 @@
 
   <div class="section-divider"></div>
 
-
   <!-- PROJECTS -->
   <div class="section" id="projects">
-    <div class="section-label fade">Projects</div>
-    <h2 class="fade">Selected Work</h2>
+    <div class="section-label fade" data-i18n="nav.projects">Projects</div>
+    <h2 class="fade" data-i18n="projects.title">Selected Work</h2>
     <div class="projects-list">
 
       <a href="https://worldofstory.worldroad.org/2024/08/18/my-artificial-dream-of-intelligence-2/" class="project-row fade" target="_blank">
         <div>
-          <h3>AI For Social Good — World of Story · Brazil</h3>
-          <p>An initiative using storytelling and AI to foster creativity, empathy, and education in underserved communities across Brazil.</p>
+          <h3 data-i18n="projects.p1_title">AI For Social Good — World of Story · Brazil</h3>
+          <p data-i18n="projects.p1_desc">An initiative using storytelling and AI to foster creativity, empathy, and education in underserved communities across Brazil.</p>
         </div>
         <div class="project-arrow">↗</div>
       </a>
 
       <a href="https://www.amazon.co.jp/-/en/WORLD-DREAM-PROJECT/dp/4866071931/" class="project-row fade" target="_blank">
         <div>
-          <h3>My Life Story in a Book — World Dream Project</h3>
-          <p>A collaborative international project turning personal life stories into published books, available worldwide.</p>
+          <h3 data-i18n="projects.p2_title">My Life Story in a Book — World Dream Project</h3>
+          <p data-i18n="projects.p2_desc">A collaborative international project turning personal life stories into published books, available worldwide.</p>
         </div>
         <div class="project-arrow">↗</div>
       </a>
-
 
     </div>
   </div>
@@ -891,18 +788,16 @@
   <!-- PUBLICATIONS -->
   <div id="publications" class="pub-bg">
     <div class="section">
-      <div class="section-label fade">Publications</div>
-      <h2 class="fade">Research Output</h2>
+      <div class="section-label fade" data-i18n="nav.publications">Publications</div>
+      <h2 class="fade" data-i18n="pubs.title">Research Output</h2>
       <div class="pub-list">
 
         <div class="pub-item fade">
           <span class="pub-year">2025</span>
           <div>
             <div class="pub-title">Beyond Bias in Student Satisfaction Surveys: Exploring the Role of Grades and Satisfaction with the Learning Design</div>
-            <div class="pub-venue">Journal Article · <em>Journal of New Approaches in Educational Research</em> · Marques, F., Hernández-Leo, D. &amp; Castillo, C.</div>
-            <div class="pub-meta">
-              <a href="https://link.springer.com/article/10.1007/s44322-025-00030-3" class="pub-link" target="_blank">View publication ↗</a>
-            </div>
+            <div class="pub-venue"><span data-i18n="pubs.journal_article">Journal Article</span> · <em>Journal of New Approaches in Educational Research</em> · Marques, F., Hernández-Leo, D. &amp; Castillo, C.</div>
+            <div class="pub-meta"><a href="https://link.springer.com/article/10.1007/s44322-025-00030-3" class="pub-link" target="_blank" data-i18n="pubs.view">View publication ↗</a></div>
           </div>
         </div>
 
@@ -910,10 +805,8 @@
           <span class="pub-year">2025</span>
           <div>
             <div class="pub-title">Exploring the Complex Analytics Interplay of LMS Design, Usage, Academic Outcomes, and Perceived Workload: A Case Study</div>
-            <div class="pub-venue">Conference Proceedings · <em>EC-TEL 2025, Lecture Notes in Computer Science</em> · Ortiz-Beltrán, A., Marques, F. &amp; Hernández-Leo, D.</div>
-            <div class="pub-meta">
-              <a href="https://link.springer.com/chapter/10.1007/978-3-032-03873-9_26" class="pub-link" target="_blank">View Publication ↗</a>
-            </div>
+            <div class="pub-venue"><span data-i18n="pubs.conf_proceedings">Conference Proceedings</span> · <em>EC-TEL 2025, Lecture Notes in Computer Science</em> · Ortiz-Beltrán, A., Marques, F. &amp; Hernández-Leo, D.</div>
+            <div class="pub-meta"><a href="https://link.springer.com/chapter/10.1007/978-3-032-03873-9_26" class="pub-link" target="_blank" data-i18n="pubs.view">View publication ↗</a></div>
           </div>
         </div>
 
@@ -921,10 +814,8 @@
           <span class="pub-year">2024</span>
           <div>
             <div class="pub-title">Towards Responsible Higher Education Institutional Analytics: A Study of Biases and Dependencies on Student Satisfaction</div>
-            <div class="pub-venue">Doctoral Thesis · <em>Universitat Pompeu Fabra</em> · Marques, F.</div>
-            <div class="pub-meta">
-              <a href="http://hdl.handle.net/10803/695429" class="pub-link" target="_blank">View Publication ↗</a>
-            </div>
+            <div class="pub-venue"><span data-i18n="pubs.doctoral_thesis">Doctoral Thesis</span> · <em>Universitat Pompeu Fabra</em> · Marques, F.</div>
+            <div class="pub-meta"><a href="http://hdl.handle.net/10803/695429" class="pub-link" target="_blank" data-i18n="pubs.view">View publication ↗</a></div>
           </div>
         </div>
 
@@ -932,10 +823,8 @@
           <span class="pub-year">2024</span>
           <div>
             <div class="pub-title">Measuring Gender Bias in Student Satisfaction in Higher Education: A Cross-Department Study</div>
-            <div class="pub-venue">Journal Article · <em>Cogent Education</em> · Marques, F., Hernández-Leo, D. &amp; Castillo, C.</div>
-            <div class="pub-meta">
-              <a href="https://www.tandfonline.com/doi/full/10.1080/2331186X.2024.2375183" class="pub-link" target="_blank">View publication ↗</a>
-            </div>
+            <div class="pub-venue"><span data-i18n="pubs.journal_article">Journal Article</span> · <em>Cogent Education</em> · Marques, F., Hernández-Leo, D. &amp; Castillo, C.</div>
+            <div class="pub-meta"><a href="https://www.tandfonline.com/doi/full/10.1080/2331186X.2024.2375183" class="pub-link" target="_blank" data-i18n="pubs.view">View publication ↗</a></div>
           </div>
         </div>
 
@@ -943,16 +832,14 @@
           <span class="pub-year">2023</span>
           <div>
             <div class="pub-title">Generative Pre-trained Transformers for Coding Text Data? An Analysis with Classroom Orchestration Data</div>
-            <div class="pub-venue">Conference Proceedings · <em>EC-TEL 2023, Lecture Notes in Computer Science</em> · Amarasinghe, I., Marques, F., Ortiz-Beltrán, A. &amp; Hernández-Leo, D.</div>
-            <div class="pub-meta">
-              <a href="https://link.springer.com/chapter/10.1007/978-3-031-42682-7_3" class="pub-link" target="_blank">View publication ↗</a>
-            </div>
+            <div class="pub-venue"><span data-i18n="pubs.conf_proceedings">Conference Proceedings</span> · <em>EC-TEL 2023, Lecture Notes in Computer Science</em> · Amarasinghe, I., Marques, F., Ortiz-Beltrán, A. &amp; Hernández-Leo, D.</div>
+            <div class="pub-meta"><a href="https://link.springer.com/chapter/10.1007/978-3-031-42682-7_3" class="pub-link" target="_blank" data-i18n="pubs.view">View publication ↗</a></div>
           </div>
         </div>
 
       </div>
       <div style="margin-top:1.5rem" class="fade">
-        <a href="https://scholar.google.com/citations?user=-g0cVvcAAAAJ&hl=en" class="btn btn-outline" target="_blank">View all on Google Scholar ↗</a>
+        <a href="https://scholar.google.com/citations?user=-g0cVvcAAAAJ&hl=en" class="btn btn-outline" target="_blank" data-i18n="pubs.scholar_btn">View all on Google Scholar ↗</a>
       </div>
     </div>
   </div>
@@ -961,36 +848,36 @@
 
   <!-- NEWS -->
   <div class="section" id="news">
-    <div class="section-label fade">News</div>
-    <h2 class="fade">Latest Updates</h2>
+    <div class="section-label fade" data-i18n="nav.news">News</div>
+    <h2 class="fade" data-i18n="news.title">Latest Updates</h2>
     <div class="news-grid">
 
       <a href="https://jotacidade.com/noticias/uruacu-barcelona-francielle-marques-aprovada-na-defesa-de-doutorado/" class="news-card fade" target="_blank">
-        <div class="news-type">PhD Defence</div>
-        <h3>Francielle Marques approved in her doctoral defence</h3>
-        <p>Uruaçu/Barcelona: Coverage of the successful PhD thesis defence at Universitat Pompeu Fabra.</p>
-        <div class="news-link">Read more ↗</div>
+        <div class="news-type" data-i18n="news.n1_type">PhD Defence</div>
+        <h3 data-i18n="news.n1_title">Francielle Marques approved in her doctoral defence</h3>
+        <p data-i18n="news.n1_desc">Uruaçu/Barcelona: Coverage of the successful PhD thesis defence at Universitat Pompeu Fabra.</p>
+        <div class="news-link" data-i18n="news.read_more">Read more ↗</div>
       </a>
 
       <a href="https://www.upf.edu/es/web/tide/home/-/asset_publisher/Ld8TYlfVJaAm/content/francielle-marques-defends-her-doctoral-thesis-towards-responsible-higher-education-institutional-analytics/maximized" class="news-card fade" target="_blank">
-        <div class="news-type">UPF News</div>
-        <h3>Doctoral thesis defence: Towards Responsible Higher Education Institutional Analytics</h3>
-        <p>Official UPF announcement of the doctoral thesis defence by Francielle Marques.</p>
-        <div class="news-link">Read more ↗</div>
+        <div class="news-type" data-i18n="news.n2_type">UPF News</div>
+        <h3 data-i18n="news.n2_title">Doctoral thesis defence: Towards Responsible Higher Education Institutional Analytics</h3>
+        <p data-i18n="news.n2_desc">Official UPF announcement of the doctoral thesis defence by Francielle Marques.</p>
+        <div class="news-link" data-i18n="news.read_more">Read more ↗</div>
       </a>
 
       <a href="https://www.paginarural.com.br/noticia/261463/congresso-brasileiro-de-agricultura-de-precisao-alcanca-objetivos-dos-organizadores-diz-asbraap" class="news-card fade" target="_blank">
-        <div class="news-type">Award</div>
-        <h3>Paper Award — Brazilian Congress of Precision Agriculture</h3>
-        <p>Award-winning research recognised at the Brazilian Congress of Precision Agriculture.</p>
-        <div class="news-link">Read more ↗</div>
+        <div class="news-type" data-i18n="news.n3_type">Award</div>
+        <h3 data-i18n="news.n3_title">Paper Award — Brazilian Congress of Precision Agriculture</h3>
+        <p data-i18n="news.n3_desc">Award-winning research recognised at the Brazilian Congress of Precision Agriculture.</p>
+        <div class="news-link" data-i18n="news.read_more">Read more ↗</div>
       </a>
 
       <a href="https://gestagro360.com.br/2018/10/05/congresso-brasileiro-de-agricultura-de-precisao-pensa-o-futuro-da-atividade/" class="news-card fade" target="_blank">
-        <div class="news-type">Press</div>
-        <h3>Brazilian Congress of Precision Agriculture looks to the future</h3>
-        <p>Coverage of the event and research presented at the 2018 congress, featured in Gestagro 360.</p>
-        <div class="news-link">Read more ↗</div>
+        <div class="news-type" data-i18n="news.n4_type">Press</div>
+        <h3 data-i18n="news.n4_title">Brazilian Congress of Precision Agriculture looks to the future</h3>
+        <p data-i18n="news.n4_desc">Coverage of the event and research presented at the 2018 congress, featured in Gestagro 360.</p>
+        <div class="news-link" data-i18n="news.read_more">Read more ↗</div>
       </a>
 
     </div>
@@ -1001,47 +888,47 @@
   <!-- OUTREACH -->
   <div id="outreach" class="about-bg">
     <div class="section">
-      <div class="section-label fade">Outreach</div>
-      <h2 class="fade">Scientific Dissemination</h2>
+      <div class="section-label fade" data-i18n="nav.outreach">Outreach</div>
+      <h2 class="fade" data-i18n="outreach.title">Scientific Dissemination</h2>
       <div class="media-list">
 
         <a href="https://www.youtube.com/watch?v=lzoFh9qctqs" class="media-item fade" target="_blank">
           <div class="media-icon">▶</div>
           <div>
-            <div class="media-title">Podcast GOFlix Brazil</div>
-            <div class="media-sub">YouTube · Interview on AI and research career</div>
+            <div class="media-title" data-i18n="outreach.m1_title">Podcast GOFlix Brazil</div>
+            <div class="media-sub" data-i18n="outreach.m1_sub">YouTube · Interview on AI and research career</div>
           </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=EGFN28fczsM" class="media-item fade" target="_blank">
           <div class="media-icon">▶</div>
           <div>
-            <div class="media-title">SNCT 2020 — The Human Intelligence Behind Artificial Intelligence</div>
-            <div class="media-sub">YouTube · National Science and Technology Week talk</div>
+            <div class="media-title" data-i18n="outreach.m2_title">SNCT 2020 — The Human Intelligence Behind Artificial Intelligence</div>
+            <div class="media-sub" data-i18n="outreach.m2_sub">YouTube · National Science and Technology Week talk</div>
           </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=TqPfLXExN7w" class="media-item fade" target="_blank">
           <div class="media-icon">▶</div>
           <div>
-            <div class="media-title">Talk: The Human Intelligence Behind Artificial Intelligence</div>
-            <div class="media-sub">YouTube · Public lecture on AI and human cognition</div>
+            <div class="media-title" data-i18n="outreach.m3_title">Talk: The Human Intelligence Behind Artificial Intelligence</div>
+            <div class="media-sub" data-i18n="outreach.m3_sub">YouTube · Public lecture on AI and human cognition</div>
           </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=qSbD0ofl-xY" class="media-item fade" target="_blank">
           <div class="media-icon">▶</div>
           <div>
-            <div class="media-title">WVS Wave 7 Data Public Launch — Team of Brazil</div>
-            <div class="media-sub">YouTube · World Values Survey public launch talk (English subtitles)</div>
+            <div class="media-title" data-i18n="outreach.m4_title">WVS Wave 7 Data Public Launch — Team of Brazil</div>
+            <div class="media-sub" data-i18n="outreach.m4_sub">YouTube · World Values Survey public launch talk (English subtitles)</div>
           </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=zZnlpm3Vb2A" class="media-item fade" target="_blank">
           <div class="media-icon">▶</div>
           <div>
-            <div class="media-title">Artificial Intelligence Group — Getting to know UFRGS</div>
-            <div class="media-sub">YouTube · Institutional presentation of the AI research group</div>
+            <div class="media-title" data-i18n="outreach.m5_title">Artificial Intelligence Group — Getting to know UFRGS</div>
+            <div class="media-sub" data-i18n="outreach.m5_sub">YouTube · Institutional presentation of the AI research group</div>
           </div>
         </a>
 
@@ -1054,17 +941,16 @@
   <!-- CONTACT -->
   <div id="contact">
     <div class="section">
-      <div class="section-label fade">Contact</div>
-      <h2 class="fade">Get in Touch</h2>
+      <div class="section-label fade" data-i18n="nav.contact">Contact</div>
+      <h2 class="fade" data-i18n="contact.title">Get in Touch</h2>
       <div class="contact-grid">
         <div class="fade">
-          <p class="contact-intro">
+          <p class="contact-intro" data-i18n="contact.intro">
             Open to collaborations, speaking invitations, and conversations about responsible AI, education, and social impact. Feel free to reach out through any of the channels below.
           </p>
           <div class="contact-links-list">
-            <a href="/cdn-cgi/l/email-protection#503622313e3339353c3c357e3d312221253523102520367e353425" class="contact-link">
-              <div class="contact-dot"></div><span class="__cf_email__" data-cfemail="a5c3d7c4cbc6ccc0c9c9c08bc8c4d7d4d0c0d6e5d0d5c38bc0c1d0"><span class="__cf_email__" data-cfemail="b0d6c2d1ded3d9d5dcdcd59eddd1c2c1c5d5c3f0c5c0d69ed5d4c5">[email&#160;protected]</span></span>
-            </a>
+            <a href="mailto:francielle.marques@upf.edu" class="contact-link">
+              <div class="contact-dot"></div>francielle.marques@upf.edu
             </a>
           </div>
         </div>
@@ -1075,10 +961,139 @@
   <!-- FOOTER -->
   <footer>
     <div>© 2025 Francielle Marques do Nascimento</div>
-    <div>Barcelona, Spain</div>
+    <div data-i18n="footer.location">Barcelona, Spain</div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    // ── TRANSLATIONS ──────────────────────────────────────────────────────────
+    const translations = {
+      en: {
+        "nav.about":"About","nav.education":"Education","nav.projects":"Projects",
+        "nav.publications":"Publications","nav.news":"News","nav.outreach":"Outreach","nav.contact":"Contact",
+        "hero.eyebrow":"AI Researcher",
+        "hero.bio":"Researcher at the Universitat Pompeu Fabra (Barcelona) working at the intersection of Artificial Intelligence, Education, and Social Good. Passionate about responsible, human-centred AI.",
+        "tags.ai":"Artificial Intelligence","tags.dl":"Deep Learning","tags.ml":"Machine Learning",
+        "tags.edu":"AI in Education","tags.social":"AI for Social Good",
+        "about.title":"Who I am",
+        "about.p1":'I am <strong>Francielle Marques do Nascimento</strong>, an AI researcher at the <strong>TIDE Research Group, Universitat Pompeu Fabra</strong> in Barcelona. I recently defended my doctoral thesis titled <em>"Towards Responsible Higher Education Institutional Analytics: A Study of Biases and Dependencies on Student Satisfaction"</em> — with the distinction of <strong>Sobresaliente cum laude</strong>.',
+        "about.p2":"My research focuses on building trustworthy and ethical AI systems, with particular attention to how machine learning can be applied responsibly in educational and social contexts. I combine technical rigor with a commitment to fairness, transparency, and inclusion.",
+        "about.p3":"I am also involved in scientific outreach, having participated in talks, podcasts, and public events to bring AI discussions to broader audiences — especially in Brazil.",
+        "about.position_label":"Position","about.position_val":"Postdoctoral Researcher",
+        "about.institution_label":"Institution","about.location_label":"Location",
+        "about.location_val":"Barcelona, Spain",
+        "about.citations_label":"Citations","about.citations_val":"40+ on Google Scholar",
+        "edu.title":"Academic Background",
+        "edu.phd_degree":"PhD in Information and Communication Technologies",
+        "edu.phd_thesis":'Doctoral thesis: <em>"Towards responsible higher education institutional analytics: a study of biases and dependencies on student satisfaction"</em>, directed by Dr. Carlos Alberto Castillo Ocaranza and Dr. Davinia Hernandez Leo.',
+        "edu.phd_note":"Defence held on July 18th, 2025.",
+        "edu.master_degree":"Master\u2019s Degree in Computer Science",
+        "edu.master_thesis":'Master\u2019s thesis: <em>"Contributions of machine learning to knowledge acquisition in the field of social sciences"</em>, directed by Dr. Dante Barone and Dr. Henrique Carlos Castro.',
+        "edu.master_badge":"Excellent",
+        "edu.bachelor_degree":"Bachelor of Science in Computer Science",
+        "edu.bachelor_thesis":'Bachelor\u2019s thesis: <em>"Sistema Computacional para previsão da dispersão da ferrugem asiática da soja a partir de dados meteorológicos e de ocorrência da doença"</em> ("Computational system for forecasting the dispersion of Asian soybean rust through meteorological and disease occurrence data"), directed by Dr. Ivarton Monteiro Santos.',
+        "edu.tech_degree":"Computer Technician",
+        "projects.title":"Selected Work",
+        "projects.p1_title":"AI For Social Good — World of Story · Brazil",
+        "projects.p1_desc":"An initiative using storytelling and AI to foster creativity, empathy, and education in underserved communities across Brazil.",
+        "projects.p2_title":"My Life Story in a Book — World Dream Project",
+        "projects.p2_desc":"A collaborative international project turning personal life stories into published books, available worldwide.",
+        "pubs.title":"Research Output","pubs.journal_article":"Journal Article",
+        "pubs.conf_proceedings":"Conference Proceedings","pubs.doctoral_thesis":"Doctoral Thesis",
+        "pubs.view":"View publication ↗","pubs.scholar_btn":"View all on Google Scholar ↗",
+        "news.title":"Latest Updates","news.read_more":"Read more ↗",
+        "news.n1_type":"PhD Defence","news.n1_title":"Francielle Marques approved in her doctoral defence",
+        "news.n1_desc":"Uruaçu/Barcelona: Coverage of the successful PhD thesis defence at Universitat Pompeu Fabra.",
+        "news.n2_type":"UPF News","news.n2_title":"Doctoral thesis defence: Towards Responsible Higher Education Institutional Analytics",
+        "news.n2_desc":"Official UPF announcement of the doctoral thesis defence by Francielle Marques.",
+        "news.n3_type":"Award","news.n3_title":"Paper Award — Brazilian Congress of Precision Agriculture",
+        "news.n3_desc":"Award-winning research recognised at the Brazilian Congress of Precision Agriculture.",
+        "news.n4_type":"Press","news.n4_title":"Brazilian Congress of Precision Agriculture looks to the future",
+        "news.n4_desc":"Coverage of the event and research presented at the 2018 congress, featured in Gestagro 360.",
+        "outreach.title":"Scientific Dissemination",
+        "outreach.m1_title":"Podcast GOFlix Brazil","outreach.m1_sub":"YouTube · Interview on AI and research career",
+        "outreach.m2_title":"SNCT 2020 — The Human Intelligence Behind Artificial Intelligence","outreach.m2_sub":"YouTube · National Science and Technology Week talk",
+        "outreach.m3_title":"Talk: The Human Intelligence Behind Artificial Intelligence","outreach.m3_sub":"YouTube · Public lecture on AI and human cognition",
+        "outreach.m4_title":"WVS Wave 7 Data Public Launch — Team of Brazil","outreach.m4_sub":"YouTube · World Values Survey public launch talk (English subtitles)",
+        "outreach.m5_title":"Artificial Intelligence Group — Getting to know UFRGS","outreach.m5_sub":"YouTube · Institutional presentation of the AI research group",
+        "contact.title":"Get in Touch",
+        "contact.intro":"Open to collaborations, speaking invitations, and conversations about responsible AI, education, and social impact. Feel free to reach out through any of the channels below.",
+        "footer.location":"Barcelona, Spain"
+      },
+      pt: {
+        "nav.about":"Sobre","nav.education":"Formação","nav.projects":"Projetos",
+        "nav.publications":"Publicações","nav.news":"Notícias","nav.outreach":"Divulgação","nav.contact":"Contato",
+        "hero.eyebrow":"Pesquisadora em IA",
+        "hero.bio":"Pesquisadora na Universitat Pompeu Fabra (Barcelona) na interseção entre Inteligência Artificial, Educação e Bem Social. Apaixonada por IA responsável e centrada no ser humano.",
+        "tags.ai":"Inteligência Artificial","tags.dl":"Aprendizado Profundo","tags.ml":"Aprendizado de Máquina",
+        "tags.edu":"IA na Educação","tags.social":"IA para o Bem Social",
+        "about.title":"Quem sou eu",
+        "about.p1":'Sou <strong>Francielle Marques do Nascimento</strong>, pesquisadora de IA no <strong>Grupo de Pesquisa TIDE, Universitat Pompeu Fabra</strong> em Barcelona. Defendi recentemente minha tese de doutorado intitulada <em>"Towards Responsible Higher Education Institutional Analytics: A Study of Biases and Dependencies on Student Satisfaction"</em> — com a distinção de <strong>Sobresaliente cum laude</strong>.',
+        "about.p2":"Minha pesquisa foca na construção de sistemas de IA confiáveis e éticos, com atenção especial a como o aprendizado de máquina pode ser aplicado de forma responsável em contextos educacionais e sociais. Combino rigor técnico com comprometimento com a equidade, transparência e inclusão.",
+        "about.p3":"Também atuo na divulgação científica, tendo participado de palestras, podcasts e eventos públicos para levar as discussões sobre IA a públicos mais amplos — especialmente no Brasil.",
+        "about.position_label":"Cargo","about.position_val":"Pesquisadora de Pós-Doutorado",
+        "about.institution_label":"Instituição","about.location_label":"Localização",
+        "about.location_val":"Barcelona, Espanha",
+        "about.citations_label":"Citações","about.citations_val":"40+ no Google Scholar",
+        "edu.title":"Formação Acadêmica",
+        "edu.phd_degree":"Doutorado em Tecnologias da Informação e Comunicação",
+        "edu.phd_thesis":'Tese de doutorado: <em>"Towards responsible higher education institutional analytics: a study of biases and dependencies on student satisfaction"</em>, orientada pelo Dr. Carlos Alberto Castillo Ocaranza e pela Dra. Davinia Hernandez Leo.',
+        "edu.phd_note":"Defesa realizada em 18 de julho de 2025.",
+        "edu.master_degree":"Mestrado em Ciência da Computação",
+        "edu.master_thesis":'Dissertação de mestrado: <em>"Contribuições do aprendizado de máquina para a aquisição de conhecimento no campo das ciências sociais"</em>, orientada pelo Dr. Dante Barone e pelo Dr. Henrique Carlos Castro.',
+        "edu.master_badge":"Excelente",
+        "edu.bachelor_degree":"Bacharelado em Ciência da Computação",
+        "edu.bachelor_thesis":'Trabalho de conclusão de curso: <em>"Sistema Computacional para previsão da dispersão da ferrugem asiática da soja a partir de dados meteorológicos e de ocorrência da doença"</em>, orientado pelo Dr. Ivarton Monteiro Santos.',
+        "edu.tech_degree":"Técnico em Informática",
+        "projects.title":"Trabalhos Selecionados",
+        "projects.p1_title":"IA para o Bem Social — World of Story · Brasil",
+        "projects.p1_desc":"Uma iniciativa que usa narrativa e IA para promover criatividade, empatia e educação em comunidades vulneráveis no Brasil.",
+        "projects.p2_title":"Minha História de Vida em um Livro — World Dream Project",
+        "projects.p2_desc":"Um projeto colaborativo internacional que transforma histórias de vida pessoais em livros publicados, disponíveis em todo o mundo.",
+        "pubs.title":"Produção Científica","pubs.journal_article":"Artigo em Periódico",
+        "pubs.conf_proceedings":"Anais de Conferência","pubs.doctoral_thesis":"Tese de Doutorado",
+        "pubs.view":"Ver publicação ↗","pubs.scholar_btn":"Ver todas no Google Scholar ↗",
+        "news.title":"Últimas Novidades","news.read_more":"Leia mais ↗",
+        "news.n1_type":"Defesa de Doutorado","news.n1_title":"Francielle Marques aprovada na defesa de doutorado",
+        "news.n1_desc":"Uruaçu/Barcelona: Cobertura da bem-sucedida defesa de tese de doutorado na Universitat Pompeu Fabra.",
+        "news.n2_type":"Notícias UPF","news.n2_title":"Defesa de tese: Towards Responsible Higher Education Institutional Analytics",
+        "news.n2_desc":"Comunicado oficial da UPF sobre a defesa de tese de Francielle Marques.",
+        "news.n3_type":"Prêmio","news.n3_title":"Prêmio de Artigo — Congresso Brasileiro de Agricultura de Precisão",
+        "news.n3_desc":"Pesquisa premiada reconhecida no Congresso Brasileiro de Agricultura de Precisão.",
+        "news.n4_type":"Imprensa","news.n4_title":"Congresso Brasileiro de Agricultura de Precisão pensa o futuro",
+        "news.n4_desc":"Cobertura do evento e das pesquisas apresentadas no congresso de 2018, publicada na Gestagro 360.",
+        "outreach.title":"Divulgação Científica",
+        "outreach.m1_title":"Podcast GOFlix Brasil","outreach.m1_sub":"YouTube · Entrevista sobre IA e carreira em pesquisa",
+        "outreach.m2_title":"SNCT 2020 — A Inteligência Humana por Trás da Inteligência Artificial","outreach.m2_sub":"YouTube · Palestra na Semana Nacional de Ciência e Tecnologia",
+        "outreach.m3_title":"Palestra: A Inteligência Humana por Trás da Inteligência Artificial","outreach.m3_sub":"YouTube · Aula pública sobre IA e cognição humana",
+        "outreach.m4_title":"Lançamento Público dos Dados WVS Onda 7 — Equipe Brasil","outreach.m4_sub":"YouTube · Palestra de lançamento público do World Values Survey (legendas em inglês)",
+        "outreach.m5_title":"Grupo de Inteligência Artificial — Conhecendo a UFRGS","outreach.m5_sub":"YouTube · Apresentação institucional do grupo de pesquisa em IA",
+        "contact.title":"Entre em Contato",
+        "contact.intro":"Aberta a colaborações, convites para palestras e conversas sobre IA responsável, educação e impacto social. Sinta-se à vontade para entrar em contato por qualquer um dos canais abaixo.",
+        "footer.location":"Barcelona, Espanha"
+      }
+    };
+
+    // ── i18n ENGINE ───────────────────────────────────────────────────────────
+    function setLang(lang) {
+      const t = translations[lang];
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = t[el.getAttribute('data-i18n')];
+        if (v !== undefined) el.textContent = v;
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = t[el.getAttribute('data-i18n-html')];
+        if (v !== undefined) el.innerHTML = v;
+      });
+
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      document.title = lang === 'pt' ? 'Francielle Marques — Pesquisadora em IA' : 'Francielle Marques — AI Researcher';
+    }
+
+    // ── FADE-IN ON SCROLL ─────────────────────────────────────────────────────
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
@@ -1087,22 +1102,18 @@
         }
       });
     }, { threshold: 0.08 });
-
     document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 
+    // ── ACTIVE NAV LINK ───────────────────────────────────────────────────────
     const secs = document.querySelectorAll('[id]');
-    const links = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
-           let current = '';
-      secs.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-      });
-      links.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
+      let current = '';
+      secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     });
 
-    // Hamburger menu
+    // ── HAMBURGER ─────────────────────────────────────────────────────────────
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('nav-drawer');
     hamburger.addEventListener('click', () => {
