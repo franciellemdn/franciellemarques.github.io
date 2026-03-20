@@ -480,7 +480,99 @@
     .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .fade.in { opacity: 1; transform: none; }
 
-    /* RESPONSIVE */
+    /* EDUCATION TIMELINE */
+    .edu-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+      border-radius: 2px;
+    }
+
+    .edu-item {
+      position: relative;
+      padding: 0 0 2.8rem 2rem;
+    }
+
+    .edu-item:last-child { padding-bottom: 0; }
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: -0.44rem;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--accent);
+      z-index: 1;
+    }
+
+    .edu-item:first-child::before {
+      background: var(--accent);
+    }
+
+    .edu-year {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .edu-institution {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-thesis {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-thesis em { color: var(--text); font-style: italic; }
+
+    .edu-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .edu-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+
     @media (max-width: 720px) {
       nav { padding: 0 1.5rem; }
       .nav-links { gap: 1.2rem; }
@@ -499,6 +591,7 @@
     <a href="#hero" class="nav-name">Francielle Marques</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#news">News</a></li>
@@ -577,6 +670,58 @@
   </div>
 
   <div class="section-divider"></div>
+
+  <!-- EDUCATION -->
+  <div id="education">
+    <div class="section">
+      <div class="section-label">Education</div>
+      <h2>Academic Background</h2>
+      <div class="edu-timeline">
+
+        <div class="edu-item">
+          <div class="edu-year">2025</div>
+          <div>
+            <div class="edu-degree">PhD in Information and Communication Technologies</div>
+            <div class="edu-institution">Universitat Pompeu Fabra (UPF) · Barcelona, Spain</div>
+            <p class="edu-thesis">Doctoral thesis: <em>"Towards responsible higher education institutional analytics: a study of biases and dependencies on student satisfaction"</em>, directed by Dr. Carlos Alberto Castillo Ocaranza and Dr. Davinia Hernandez Leo.</p>
+            <p class="edu-note">Defence held on July 18th, 2025.</p>
+            <span class="edu-badge">Sobresaliente cum laude</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-year">2021</div>
+          <div>
+            <div class="edu-degree">Master's Degree in Computer Science</div>
+            <div class="edu-institution">Federal University of Rio Grande do Sul (UFRGS) · Brazil</div>
+            <p class="edu-thesis">Master's thesis: <em>"Contributions of machine learning to knowledge acquisition in the field of social sciences"</em>, directed by Dr. Dante Barone and Dr. Henrique Carlos Castro.</p>
+            <span class="edu-badge">Excellent</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-year">2018</div>
+          <div>
+            <div class="edu-degree">Bachelor of Science in Computer Science</div>
+            <div class="edu-institution">Federal University of Mato Grosso (UFMT) · Brazil</div>
+            <p class="edu-thesis">Bachelor's thesis: <em>"Sistema Computacional para previsão da dispersão da ferrugem asiática da soja a partir de dados meteorológicos e de ocorrência da doença"</em> ("Computational system for forecasting the dispersion of Asian soybean rust through meteorological and disease occurrence data"), directed by Dr. Ivarton Monteiro Santos.</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-year">2014</div>
+          <div>
+            <div class="edu-degree">Computer Technician</div>
+            <div class="edu-institution">Federal Institute of Goiás (IFG) · Brazil</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
 
   <!-- PROJECTS -->
   <div class="section" id="projects">
@@ -781,7 +926,7 @@
           </p>
           <div class="contact-links-list">
             <a href="mailto:francielle.marques@upf.edu" class="contact-link">
-              <div class="contact-dot"></div>francielle.marques@upf.edu
+              <div class="contact-dot"></div><span class="__cf_email__" data-cfemail="a5c3d7c4cbc6ccc0c9c9c08bc8c4d7d4d0c0d6e5d0d5c38bc0c1d0">francielle.marques@upf.edu</span>
             </a>
             </a>
           </div>
@@ -811,10 +956,12 @@
     const secs = document.querySelectorAll('[id]');
     const links = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
-      let cur = '';
-      secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
-      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+      let current = '';
+      secs.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      links.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
     });
   </script>
-</body>
-</html>
