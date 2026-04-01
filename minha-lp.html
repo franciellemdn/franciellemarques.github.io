@@ -36,8 +36,8 @@ body{font-family:'Sora',sans-serif;background:var(--e-bg);color:var(--e-txt);lin
 .anim{opacity:0}.anim.vis{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) forwards}
 .anim-d1.vis{animation-delay:.06s}.anim-d2.vis{animation-delay:.12s}.anim-d3.vis{animation-delay:.18s}.anim-d4.vis{animation-delay:.24s}.anim-d5.vis{animation-delay:.3s}.anim-d6.vis{animation-delay:.36s}
 .lp{position:relative;background:var(--lp-bg);color:var(--lp-txt);border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.06)}
-.sec{padding:80px 28px;max-width:900px;margin:0 auto}
-.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:72px 24px}
+.sec{padding:32px 28px;max-width:900px;margin:0 auto}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:32px 24px}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(13,148,136,.06),transparent 60%);pointer-events:none}
 .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(13,148,136,.06);border:1px solid rgba(13,148,136,.12);border-radius:99px;padding:7px 20px;font-size:12.5px;font-weight:600;color:var(--lp-accent);margin-bottom:28px;letter-spacing:-.1px}
 .h1{font-size:clamp(2.2rem,6.5vw,4rem);font-weight:800;letter-spacing:-2.5px;line-height:1.1;margin-bottom:18px;color:var(--lp-txt)}
@@ -145,7 +145,7 @@ body.edit .tag-add{display:inline-flex}
 </section>
 
 
-<section class="sec pain-bg" id="s-pain" style="padding-top: 80px; padding-bottom: 80px;">
+<section class="sec pain-bg" id="s-pain">
   <h2 class="sec-title vis" style="opacity: 1;"></h2><h2 class="sec-title vis" style="color: rgb(225, 29, 72); outline-color: rgba(13, 148, 136, 0.6); outline-style: solid; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; box-shadow: rgba(13, 148, 136, 0.08) 0px 0px 0px 3px; opacity: 1;">Um público. Uma página. Um problema.</h2>
   <div class="pgrid">
     <div class="pcard anim-d1 vis" style="opacity: 1;"><span class="p-ico">🎯</span><span class="p-txt">Falar com todo mundo é o mesmo que não falar com ninguém</span></div>
@@ -156,14 +156,14 @@ body.edit .tag-add{display:inline-flex}
 </section>
 
 
-<section class="sec" id="s-evidence" style="padding-top: 80px; padding-bottom: 80px;">
+<section class="sec" id="s-evidence">
   <h2 class="sec-title vis" style="opacity: 1;">A melhor prova é o que você está vendo</h2>
   <div class="evidence-banner vis" style="opacity: 1;"><div class="eb-icon">👁️</div><div><div class="eb-title">Essa página é a prova</div><div class="eb-desc">Tudo que você está lendo foi escrito direto no editor. As cores foram escolhidas no seletor de harmonização. A estrutura é a que vem pronta. Zero Photoshop. Zero agência.</div></div></div>
   <div class="evidence-banner anim-d2 vis" style="opacity: 1;"><div class="eb-icon">🧪</div><div><div class="eb-title">Teste ao vivo, não promessa</div><div class="eb-desc">Se esta página te fez ler até aqui, imagina o que você consegue criar para o seu negócio — com o seu conteúdo, as suas cores, a sua história.</div></div></div>
 </section>
 
 
-<section class="sec" id="s-prods" style="padding-top: 80px; padding-bottom: 80px;">
+<section class="sec" id="s-prods">
   <h2 class="sec-title vis" style="opacity: 1;">Exatamente o que foi usado aqui</h2>
   <p class="desc vis" style="margin: 0px auto 44px; opacity: 1;">Tudo que construiu esta página está incluído no editor que você recebe.</p>
   <div class="prod-grid">
@@ -174,7 +174,7 @@ body.edit .tag-add{display:inline-flex}
 </section>
 
 
-<section class="sec" id="s-feat" style="padding-top: 80px; padding-bottom: 80px;">
+<section class="sec" id="s-feat">
   <h2 class="sec-title vis" style="opacity: 1;">O que esta página prova que funciona</h2>
   <div class="fgrid">
     <div class="fcard anim-d1 vis" style="opacity: 1;"><div class="f-ico">✏️</div><div class="f-ttl">Edição real</div><div class="f-desc">Não é demonstração. Cada palavra foi escrita no editor inline.</div></div>
@@ -187,7 +187,7 @@ body.edit .tag-add{display:inline-flex}
 </section>
 
 
-<section class="sec" id="s-mcta" style="text-align: center; padding-top: 80px; padding-bottom: 80px;">
+<section class="sec" id="s-mcta" style="text-align: center;">
   <a href="https://wa.me/34662343687?text=Ol%C3%A1%20!%20Quero%20a%20Minha%20LP" class="btn btn-p vis" role="button" target="_blank" rel="noopener" aria-label="Se esta página funciona, a sua também vai →" style="opacity: 1;">Se esta página funciona, a sua também vai →</a>
 </section>
 
@@ -195,7 +195,7 @@ body.edit .tag-add{display:inline-flex}
 
 
 
-<section class="sec" id="s-steps" style="padding-top: 80px; padding-bottom: 80px;">
+<section class="sec" id="s-steps">
   <h2 class="sec-title vis" style="opacity: 1;">Como essa página foi criada</h2>
   <div class="steps">
     <div class="step anim-d1 vis" style="opacity: 1;"><div class="step-n">1</div><div class="step-t">Abri o editor MinhaLP</div><div class="step-d">O mesmo que você vai receber. Personalizado, pronto para usar no navegador.</div></div>
@@ -205,7 +205,7 @@ body.edit .tag-add{display:inline-flex}
 </section>
 
 
-<section class="sec" id="s-auth" style="padding-top: 80px; padding-bottom: 80px;">
+<section class="sec" id="s-auth">
   <h2 class="sec-title vis" style="opacity: 1;">Quem criou</h2>
   <div class="auth vis" style="opacity: 1;">
     <div class="auth-header">
@@ -231,7 +231,7 @@ body.edit .tag-add{display:inline-flex}
 
 
 
-<section class="sec final-bg" id="s-final" style="padding-top: 80px; padding-bottom: 80px;">
+<section class="sec final-bg" id="s-final">
   <h2 class="sec-title vis" style="opacity: 1;">Se esta página te convenceu, o editor funciona.</h2>
   <p class="desc vis" style="margin: 0px auto 28px; opacity: 1;">Você acabou de ver o MinhaLP em ação — do primeiro scroll até aqui. Agora imagina o que você cria para o seu negócio, com a sua história, as suas cores, o seu público.</p>
   <a href="https://wa.me/34662343687?text=Ol%C3%A1%20!%20Quero%20a%20Minha%20LP" class="btn btn-p vis" role="button" target="_blank" rel="noopener" aria-label="Quero criar a minha →" style="opacity: 1;">Quero criar a minha →</a>
